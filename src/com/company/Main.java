@@ -3,6 +3,6 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	System.out.print("nathanfryy test sub branch");
+	System.out.print("nate's sub branch test");
     }
 }
