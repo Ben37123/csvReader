@@ -1,4 +1,5 @@
 package com.company;
 
-public class creator {
+public class Reader {
+
 }
