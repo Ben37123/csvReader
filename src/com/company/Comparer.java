@@ -2,25 +2,65 @@ package com.company;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Comparer {
 
 
-    public static void find_similarities(List<String> a, List<String> b) {
-        //Tests to make sure it gets correct categories
-        //System.out.print(a.get(0)+": "+a.get(4)+" "+a.get(8)+" "+a.get(12)+" "+b.get(4)+" "+b.get(8)+" "+b.get(12));
-        //System.out.print("\n");
-        //System.out.print(a.get(1)+": "+a.get(5)+" "+a.get(9)+" "+a.get(13)+" "+b.get(5)+" "+b.get(9)+" "+b.get(13));
-        //System.out.print("\n");
-        //System.out.print(a.get(2)+": "+a.get(6)+" "+a.get(10)+" "+a.get(14)+" "+b.get(6)+" "+b.get(10)+" "+b.get(14));
-        //System.out.print("\n");
-        //System.out.print(a.get(3)+": "+a.get(7)+" "+a.get(11)+" "+a.get(15)+" "+b.get(7)+" "+b.get(11)+" "+b.get(15));
-        for(int i = 0; i < a.size(); i++ ) {
-            System.out.print(a.get(i));
+    public static ArrayList create_peopleList(List<String> a, List<String> b) {
+
+        ArrayList<ArrayList<String>> people = new ArrayList<ArrayList<String>>();
+        List<String> values = new ArrayList();
+        ArrayList<String> person = new ArrayList();
+        System.out.print("------CSV A------" + "\n");
+
+        int numValues = 0;
+        for (int i = 0; i < 4; i++) {
+            values.add(a.get(i));
+            numValues++;
         }
+        System.out.print(values + "\n");
+
+        int aline = numValues;
+        int alineLimit = aline + 4;
+        for (int i = 0; alineLimit < a.size()+1; i = i + 4) {
+            person.clear();
+            for (int u = aline; u < alineLimit; u++) {
+                person.add(a.get(u));
+            }
+            people.add(person);
+            aline = aline + 4;
+            alineLimit = alineLimit + 4;
+            System.out.print(person +"\n");
+        }
+        System.out.print("\n");
+
+        System.out.print("------CSV B------" + "\n");
+        System.out.print(values + "\n");
+        int bline = numValues;
+        int blineLimit = bline + 4;
+        for (int i = 0; blineLimit < b.size()+1; i = i + 4) {
+            person.clear();
+            for (int u = bline; u < blineLimit; u++) {
+                person.add(b.get(u));
+            }
+            people.add(person);
+            bline = bline + 4;
+            blineLimit = blineLimit + 4;
+            System.out.print(person +"\n");
+        }
+        return people;
     }
+
+    public static ArrayList find_similarities(ArrayList<String> people) {
+        System.out.print(people);
+        return null;
+    }
+
+    {
+
+    }
+
 
 
 }
