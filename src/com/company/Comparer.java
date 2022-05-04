@@ -2,25 +2,52 @@ package com.company;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Stream;
 
-public class Comparer {
+public class Comparer{
 
+    public static ArrayList find_similarities(List<List<String>> a, List<List<String>> b, int numValues) {
 
-    public static void find_similarities(List<String> a, List<String> b) {
-        //Tests to make sure it gets correct categories
-        //System.out.print(a.get(0)+": "+a.get(4)+" "+a.get(8)+" "+a.get(12)+" "+b.get(4)+" "+b.get(8)+" "+b.get(12));
-        //System.out.print("\n");
-        //System.out.print(a.get(1)+": "+a.get(5)+" "+a.get(9)+" "+a.get(13)+" "+b.get(5)+" "+b.get(9)+" "+b.get(13));
-        //System.out.print("\n");
-        //System.out.print(a.get(2)+": "+a.get(6)+" "+a.get(10)+" "+a.get(14)+" "+b.get(6)+" "+b.get(10)+" "+b.get(14));
-        //System.out.print("\n");
-        //System.out.print(a.get(3)+": "+a.get(7)+" "+a.get(11)+" "+a.get(15)+" "+b.get(7)+" "+b.get(11)+" "+b.get(15));
-        for(int i = 0; i < a.size(); i++ ) {
-            System.out.print(a.get(i));
+        List<List<String>> finalList;
+        List<List<String>> combinedList = a;
+        for (int i = 0; i < b.size();i++) {
+            if (i == 0) {
+            }
+            else {
+                combinedList.add(b.get(i));
+            }
         }
+
+        String valueString = new String();
+        for (int i = 0; i < numValues; i++) {
+            valueString += i + ": " + combinedList.get(0).get(i) + "\n";
+        }
+        Scanner scan = new Scanner(System.in);
+        System.out.println("How would like to match the files?\n"+"Enter the corresponding number\n"+ valueString);
+        String answer = scan.nextLine();
+        int intAnswer = Integer.parseInt(answer);
+
+        for (int i = 0; i < combinedList.size(); i++) {
+            if (i==0);
+            else{
+                List<String> characterList = null;
+                for (int u = 0; u < combinedList.get(u).size(); u=+3) {
+                    for(int e = 0; e < combinedList.get(u).get(e).length(); e++) {
+                        String value = combinedList.get(u).get(e);
+                        char[] ch = value.toCharArray();
+                        for(int o = 0; 0 < ch.length; o++) {
+
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
     }
+
 
 
 }

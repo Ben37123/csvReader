@@ -4,39 +4,34 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-//import java.io.*;
+import java.io.*;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class Reader {
 
-    public static void print_list() throws IOException {
-        String file = "/Users/Ben Blank/Documents/csv_a.csv";
-        BufferedReader reader = null;
-        String line = "";
+    private static final String COMMA_DELIMITER = ",";
 
-        try {
-            reader = new BufferedReader(new FileReader(file));
-            while((line = reader.readLine()) != null) {
-                String[] row = line.split(",");
-
-                for(String index : row) {
-                    System.out.printf("%-10s", index);
-                }
-                System.out.println();
+    public static List<List<String>> read_file(String file) throws IOException {
+        List<List<String>> people = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(COMMA_DELIMITER);
+                people.add(Arrays.asList(values));
             }
         }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-
+    return people;
     }
+
+    public static int get_numValues(List<List<String>> peopleA) {
+        int numValues = 0;
+        numValues = peopleA.get(0).size();
+        return numValues;
+    }
+
+
 
 
 }
