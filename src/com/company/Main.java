@@ -9,28 +9,18 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
-        List<String> a = new ArrayList<String>(Arrays.asList(
-                "Name","Gender","Age","Hair color",
-                "John","male" ,"65","gray",
-                "cindy","female","42","brown",
-                "Oprah","male" ,"89","blonde",
-                "Mark","male","30","black",
-                "Poppy","female","32","red",
-                "trixie","female","67","brown"));
-        List<String> b = new ArrayList<String>(Arrays.asList(
-                "Name","Gender","Age","Hair color",
-                "Precilla","female","35","red",
-                "Bruce","male","32","black",
-                "Clark","male","69","black",
-                "Bryan","male","25","brown",
-                "Sarah","female","35","blonde",
-                "Stephen","male","47","Black"));
+    public static void main(String[] args) throws IOException {
+        int numValues = 0;
+        String csvFileA = "src/com/company/csvA.csv";
+        String csvFileB = "src/com/company/csvB.csv";
 
+        Reader newReader = new Reader();
+        List<List<String>> a = newReader.read_file(csvFileA);
+        List<List<String>> b = newReader.read_file(csvFileB);
+        numValues = (newReader.get_numValues(a));
 
 
         Comparer newComp = new Comparer();
-        //newComp.create_peopleList(a,b);
-        newComp.find_similarities(newComp.create_peopleList(a,b));
+        newComp.find_similarities(a,b,numValues);
     }
 }

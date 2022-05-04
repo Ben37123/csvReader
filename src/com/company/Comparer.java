@@ -3,65 +3,53 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Stream;
 
-public class Comparer {
+public class Comparer{
 
+    public static ArrayList find_similarities(List<List<String>> a, List<List<String>> b, int numValues) {
 
-    public static ArrayList create_peopleList(List<String> a, List<String> b) {
-
-        ArrayList<ArrayList<String>> people = new ArrayList<ArrayList<String>>();
-        List<String> values = new ArrayList();
-        ArrayList<String> person = new ArrayList();
-        System.out.print("------CSV A------" + "\n");
-
-        int numValues = 0;
-        for (int i = 0; i < 4; i++) {
-            values.add(a.get(i));
-            numValues++;
-        }
-        System.out.print(values + "\n");
-
-        int aline = numValues;
-        int alineLimit = aline + 4;
-        for (int i = 0; alineLimit < a.size()+1; i = i + 4) {
-            person.clear();
-            for (int u = aline; u < alineLimit; u++) {
-                person.add(a.get(u));
+        List<List<String>> finalList;
+        List<List<String>> combinedList = a;
+        for (int i = 0; i < b.size();i++) {
+            if (i == 0) {
             }
-            people.add(person);
-            aline = aline + 4;
-            alineLimit = alineLimit + 4;
-            System.out.print(person +"\n");
-        }
-        System.out.print("\n");
-
-        System.out.print("------CSV B------" + "\n");
-        System.out.print(values + "\n");
-        int bline = numValues;
-        int blineLimit = bline + 4;
-        for (int i = 0; blineLimit < b.size()+1; i = i + 4) {
-            person.clear();
-            for (int u = bline; u < blineLimit; u++) {
-                person.add(b.get(u));
+            else {
+                combinedList.add(b.get(i));
             }
-            people.add(person);
-            bline = bline + 4;
-            blineLimit = blineLimit + 4;
-            System.out.print(person +"\n");
         }
-        return people;
-    }
 
-    public static ArrayList find_similarities(ArrayList<String> people) {
-        System.out.print(people);
+        String valueString = new String();
+        for (int i = 0; i < numValues; i++) {
+            valueString += i + ": " + combinedList.get(0).get(i) + "\n";
+        }
+        Scanner scan = new Scanner(System.in);
+        System.out.println("How would like to match the files?\n"+"Enter the corresponding number\n"+ valueString);
+        String answer = scan.nextLine();
+        int intAnswer = Integer.parseInt(answer);
+
+        for (int i = 0; i < combinedList.size(); i++) {
+            if (i==0) {
+                System.out.print("wait");
+            }
+            else{
+                List<String> characterList = null;
+                for (int u = 0; u < combinedList.get(i).size(); u=u+3) {
+                    for(int e = 0; e < combinedList.get(i).get(u).length(); e++) {
+                        String value = combinedList.get(i).get(u);
+                        char[] ch = value.toCharArray();
+                        for(int o = 0; o < ch.length; o++) {
+                            System.out.print(value.charAt(o));
+                        }
+                    }
+                }
+            }
+        }
+
         return null;
-    }
-
-    {
-
     }
 
 
 
 }
-
