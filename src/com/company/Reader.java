@@ -30,8 +30,4 @@ public class Reader {
         numValues = peopleA.get(0).size();
         return numValues;
     }
-
-
-
-
 }
