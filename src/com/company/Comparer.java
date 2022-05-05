@@ -30,15 +30,17 @@ public class Comparer{
         int intAnswer = Integer.parseInt(answer);
 
         for (int i = 0; i < combinedList.size(); i++) {
-            if (i==0);
+            if (i==0) {
+                System.out.print("wait");
+            }
             else{
                 List<String> characterList = null;
-                for (int u = 0; u < combinedList.get(u).size(); u=+3) {
-                    for(int e = 0; e < combinedList.get(u).get(e).length(); e++) {
-                        String value = combinedList.get(u).get(e);
+                for (int u = 0; u < combinedList.get(i).size(); u=u+3) {
+                    for(int e = 0; e < combinedList.get(i).get(u).length(); e++) {
+                        String value = combinedList.get(i).get(u);
                         char[] ch = value.toCharArray();
-                        for(int o = 0; 0 < ch.length; o++) {
-
+                        for(int o = 0; o < ch.length; o++) {
+                            System.out.print(value.charAt(o));
                         }
                     }
                 }
@@ -51,4 +53,3 @@ public class Comparer{
 
 
 }
-

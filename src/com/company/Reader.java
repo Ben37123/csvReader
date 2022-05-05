@@ -22,7 +22,7 @@ public class Reader {
                 people.add(Arrays.asList(values));
             }
         }
-    return people;
+        return people;
     }
 
     public static int get_numValues(List<List<String>> peopleA) {
@@ -30,9 +30,4 @@ public class Reader {
         numValues = peopleA.get(0).size();
         return numValues;
     }
-
-
-
-
 }
-
