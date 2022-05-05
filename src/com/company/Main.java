@@ -10,9 +10,9 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        int numValues = 0;
-        String csvFileA = "src/com/company/csvA.csv";
-        String csvFileB = "src/com/company/csvB.csv";
+        int numValues;
+        String csvFileA = "src/com/company/CSVfiles/csvA.csv";
+        String csvFileB = "src/com/company/CSVfiles/csvB.csv";
 
         Reader newReader = new Reader();
         List<List<String>> a = newReader.read_file(csvFileA);
