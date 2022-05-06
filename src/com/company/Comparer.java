@@ -15,49 +15,51 @@ public class Comparer{
             }
         }
 
-        String valueString = new String();
-        for (int i = 0; i < numValues; i++) {
-            valueString += i + ": " + combinedList.get(0).get(i) + "\n";
-        }
-        Scanner scan = new Scanner(System.in);
-        System.out.println("How would like to match the files?\n"+"Enter the corresponding number\n"+ valueString);
-        String answer = scan.nextLine();
-        int intAnswer = Integer.parseInt(answer);
-
-        for (int i = 0; i < combinedList.size()-1; i++) {
-            if (i==0);
-            else{
-                for (int u = intAnswer; u < combinedList.get(i).size(); u=u+numValues) {
-                    List<String> characterList = new ArrayList<>();
-                    int charValue =0;
-                    for (int e = 0; e < combinedList.get(i).get(u).length(); e++) {
-                        String value = combinedList.get(i).get(u);
-                        characterList.add(String.valueOf(value.charAt(e)));
-                    }
-                    for (int k = 0; k < characterList.size(); k++) {
-                        String currentChar = characterList.get(k);
-                        for (int j = 0; j < combinedList.size(); j++) {
-                            if(j==0);
-                            if(j==i);
-                            else{
-                                for (int m = intAnswer; m < combinedList.get(j).size(); m=m+numValues) {
-                                    List<String> tempCharList = new ArrayList<>();
-                                    for (int n = 0; n < combinedList.get(j).get(m).length(); n++) {
-                                        String tempValue = combinedList.get(j).get(m);
-                                        tempCharList.add(String.valueOf(tempValue.charAt(n)));
-                                        for (int y = 0; y < tempCharList.size(); y++) {
-                                            String compareChar = tempCharList.get(y);
-                                            if (currentChar.equalsIgnoreCase(compareChar)) {
-                                                charValue++;
+        for (int r = 0; r < numValues; r++) {
+            //String valueString = new String();
+            //for (int i = 0; i < numValues; i++) {
+            //    valueString += i + ": " + combinedList.get(0).get(i) + "\n";
+            //}
+            //Scanner scan = new Scanner(System.in);
+            //System.out.println("How would like to match the files?\n"+"Enter the corresponding number\n"+ valueString);
+            //String answer = scan.nextLine();
+            //int intAnswer = Integer.parseInt(answer);
+            int intAnswer = r;
+            for (int i = 0; i < combinedList.size() - 1; i++) {
+                if (i == 0) ;
+                else {
+                    for (int u = intAnswer; u < combinedList.get(i).size(); u = u + numValues) {
+                        List<String> characterList = new ArrayList<>();
+                        int charValue = 0;
+                        for (int e = 0; e < combinedList.get(i).get(u).length(); e++) {
+                            String value = combinedList.get(i).get(u);
+                            characterList.add(String.valueOf(value.charAt(e)));
+                        }
+                        for (int k = 0; k < characterList.size(); k++) {
+                            String currentChar = characterList.get(k);
+                            for (int j = 0; j < combinedList.size(); j++) {
+                                if (j == 0) ;
+                                if (j == i) ;
+                                else {
+                                    for (int m = intAnswer; m < combinedList.get(j).size(); m = m + numValues) {
+                                        List<String> tempCharList = new ArrayList<>();
+                                        for (int n = 0; n < combinedList.get(j).get(m).length(); n++) {
+                                            String tempValue = combinedList.get(j).get(m);
+                                            tempCharList.add(String.valueOf(tempValue.charAt(n)));
+                                            for (int y = 0; y < tempCharList.size(); y++) {
+                                                String compareChar = tempCharList.get(y);
+                                                if (currentChar.equalsIgnoreCase(compareChar)) {
+                                                    charValue++;
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
                         }
+                        double fuzzyLogicValue = (double) charValue / combinedList.get(i).get(u).length();
+                        pairList.add(new Pair<>(i, fuzzyLogicValue));
                     }
-                    double fuzzyLogicValue = (double)charValue/combinedList.get(i).get(u).length();
-                    pairList.add(new Pair<>(i, fuzzyLogicValue));
                 }
             }
         }
