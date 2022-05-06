@@ -26,8 +26,7 @@ public class Reader {
     }
 
     public static int get_numValues(List<List<String>> peopleA) {
-        int numValues = 0;
-        numValues = peopleA.get(0).size();
+        int numValues = peopleA.get(0).size();
         return numValues;
     }
 }
