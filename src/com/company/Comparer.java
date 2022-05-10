@@ -14,23 +14,16 @@ public class Comparer{
                 combinedList.add(b.get(i));
             }
         }
-
-        for (int r = 0; r < numValues; r++) {
-            //String valueString = new String();
-            //for (int i = 0; i < numValues; i++) {
-            //    valueString += i + ": " + combinedList.get(0).get(i) + "\n";
-            //}
-            //Scanner scan = new Scanner(System.in);
-            //System.out.println("How would like to match the files?\n"+"Enter the corresponding number\n"+ valueString);
-            //String answer = scan.nextLine();
-            //int intAnswer = Integer.parseInt(answer);
-            int intAnswer = r;
-            for (int i = 0; i < combinedList.size() - 1; i++) {
-                if (i == 0) ;
-                else {
-                    for (int u = intAnswer; u < combinedList.get(i).size(); u = u + numValues) {
+        for (int i = 0; i < combinedList.size() - 1; i++) {
+            int charValue = 0;
+            if (i == 0) ;
+            else {
+                for (int u = 0; u < combinedList.get(i).size(); u++) {
+                    if (isInteger(combinedList.get(i).get(u))) {
+                        int intValue = Integer.parseInt(combinedList.get(i).get(u));
+                    }
+                    else {
                         List<String> characterList = new ArrayList<>();
-                        int charValue = 0;
                         for (int e = 0; e < combinedList.get(i).get(u).length(); e++) {
                             String value = combinedList.get(i).get(u);
                             characterList.add(String.valueOf(value.charAt(e)));
@@ -41,7 +34,7 @@ public class Comparer{
                                 if (j == 0) ;
                                 if (j == i) ;
                                 else {
-                                    for (int m = intAnswer; m < combinedList.get(j).size(); m = m + numValues) {
+                                    for (int m = u; m < combinedList.get(j).size(); m = m + numValues) {
                                         List<String> tempCharList = new ArrayList<>();
                                         for (int n = 0; n < combinedList.get(j).get(m).length(); n++) {
                                             String tempValue = combinedList.get(j).get(m);
@@ -57,12 +50,16 @@ public class Comparer{
                                 }
                             }
                         }
-                        double fuzzyLogicValue = (double) charValue / combinedList.get(i).get(u).length();
-                        pairList.add(new Pair<>(i, fuzzyLogicValue));
                     }
                 }
             }
+            double fuzzyLogicValue = 0;
+            for (int z = 0; z < combinedList.get(i).size(); z++) {
+                fuzzyLogicValue = fuzzyLogicValue + (double) charValue / combinedList.get(i).get(z).length();
+            }
+            pairList.add(new Pair<>(i, fuzzyLogicValue));
         }
+
         Collections.sort(pairList, Comparator.comparing(p -> -p.second));
         for (int q = 0; q < pairList.size(); q++) {
             finalList.add(combinedList.get(pairList.get(q).first));
@@ -129,6 +126,15 @@ public class Comparer{
         }
     }
 
+    public boolean isInteger (String input) { //Pass in string
+        try { //Try to make the input into an integer
+            Integer.parseInt( input );
+            return true; //Return true if it works
+        }
+        catch( Exception e ) {
+            return false; //If it doesn't work return false
+        }
+    }
 
 
 }
