@@ -1,18 +1,15 @@
 package com.company;
-import jdk.internal.org.jline.reader.impl.LineReaderImpl;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
 
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         int numValues;
-        String csvFileA = "src/com/company/CSVfiles/csvA.csv";
-        String csvFileB = "src/com/company/CSVfiles/csvB.csv";
+        String csvFileA = "src/com/company/CSVfiles/addressesA.csv";
+        String csvFileB = "src/com/company/CSVfiles/addressesB.csv";
 
         Reader newReader = new Reader();
         List<List<String>> a = newReader.read_file(csvFileA);
@@ -21,6 +18,9 @@ public class Main {
 
 
         Comparer newComp = new Comparer();
-        newComp.find_similarities(a,b,numValues);
+        List<List<String>> finalList= newComp.find_similarities(a,b,numValues);
+
+        Creator newCreator = new Creator();
+        newCreator.create_new_csv(finalList);
     }
 }
