@@ -1,7 +1,7 @@
-firstName,lastName,address,city,state,zip
-John,Doe,120 jefferson st.,Riverside, NJ, 08075
-Jack,McGinnis,220 hobo Av.,Phila, PA,09119
-John Da Man,Repici,120 Jefferson St.,Riverside, NJ,08075
-Stephen,Tyler,7452 Terrace At the Plaza road,SomeTown,SD, 91234
-Jake,Blankman,,SomeTown, SD, 00298
-Joan,Anne,poopy street,Desert City,CO,00123
+firstName,lastName,address,city,state
+John,Doe,120JeffersonSt.,Riverside,NJ
+John,Doe,321JeffersonSt.,SomeTown,CA
+Ben,Blankenship,120JeffersonDr.,Lincoln,NE
+Stephen,Tyler,7452TerraceAtThePlazaRoad,SomeTown,CA
+Jake,Blankenshiet,420JeffersonAv.,SomeTown,SD
+Joan,Anne,poopyRoad,RallyTown,CO
